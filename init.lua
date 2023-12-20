@@ -1,6 +1,6 @@
 local opt = vim.opt
 
 -------------------------------------- options ------------------------------------------
--- Number
+-- Numbers
 opt.relativenumber = true
 
