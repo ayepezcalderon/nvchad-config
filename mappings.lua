@@ -54,14 +54,10 @@ M.black = {
   },
 
   v = {
-    ["<leader>1f"] = {
+    ["<leader>fm"] = {
       function ()
           vim.lsp.buf.format({
           async = true,
-          range = {
-                ["start"] = vim.api.nvim_buf_get_mark(0, "<"),
-                ["end"] = vim.api.nvim_buf_get_mark(0, ">"),
-              }
           })
       end,
       "LSP formatting",

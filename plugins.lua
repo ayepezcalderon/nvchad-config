@@ -54,6 +54,7 @@ local plugins = {
         "pyright",
         "debugpy",
         "black",
+        "yapf",
         "ruff",
       },
     },
