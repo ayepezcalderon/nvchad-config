@@ -6,7 +6,18 @@ M.general = {
     ["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", "Window right" },
     ["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", "Window down" },
     ["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>", "Window up" },
-  }
+  },
+
+  v = {
+    ["<leader>fm"] = {
+      function ()
+          vim.lsp.buf.format({
+          async = true,
+          })
+      end,
+      "LSP formatting",
+    }
+  },
 }
 
 M.dap = {
@@ -52,17 +63,6 @@ M.black = {
       "black-> # fmt: skip",
     },
   },
-
-  v = {
-    ["<leader>fm"] = {
-      function ()
-          vim.lsp.buf.format({
-          async = true,
-          })
-      end,
-      "LSP formatting",
-    }
-  }
 }
 
 
