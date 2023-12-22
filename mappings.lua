@@ -20,6 +20,27 @@ M.general = {
   },
 }
 
+local neogen_opts = { noremap = true, silent = true }
+M.neogen = {
+  n = {
+    ["fd"] = {
+      function ()
+        require("neogen").generate({ type = 'func' })
+      end,
+    "Function docstring",
+    opts = neogen_opts,
+    },
+
+    ["cd"] = {
+      function ()
+        require("neogen").generate({ type = 'class' })
+      end,
+    "Class docstring",
+    opts = neogen_opts,
+    },
+  },
+}
+
 M.dap = {
   plugin = true,
   n = {
