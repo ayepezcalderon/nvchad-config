@@ -68,47 +68,20 @@ local plugins = {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        -- defaults 
-        "vim",
-        "lua",
-
-        -- web dev 
-        "html",
-        "css",
-        "javascript",
-        "typescript",
-
-        -- high level 
-        "python",
-        "cpp",
-
-        -- low level
-        "c",
-
-        -- shell
-        "bash",
-
-        -- build
-        "cmake",
-        "make",
-
-        -- reporting
-        "latex",
-
-        -- database
-        "sql",
-
-        -- serialization
-        "json",
-        "yaml",
-        "toml",
-
-        -- regex
-        "regex",
-      },
-    },
+    opts = function ()
+      return require("custom.configs.treesitter")
+    end
+  },
+  {
+    "danymat/neogen",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    ft = {"python"},
+    opts = function()
+      return require "custom.configs.neogen"
+    end,
+    -- Uncomment next line if you want to follow only stable versions
+    -- version = "*" 
   },
 }
+
 return plugins
