@@ -1,4 +1,6 @@
 local opts = {
+  snippet_engine = "luasnip",
+
   languages = {
     python = {
       template = {
