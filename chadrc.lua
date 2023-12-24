@@ -1,7 +1,15 @@
 ---@type ChadrcConfig
 local M = {}
 
-M.ui = { theme = 'catppuccin' }
+--- @type UIConfig
+M.ui = {
+  theme = 'catppuccin',
+  transparency = true,
+  hl_override = {
+    LineNr = {fg = "orange"},
+    Comment = {fg = "light_grey"},
+  }
+}
 M.plugins = "custom.plugins"
 M.mappings = require "custom.mappings"
 
