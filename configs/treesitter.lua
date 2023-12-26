@@ -27,6 +27,9 @@ local opts = {
     -- reporting
     "latex",
 
+    -- documentation
+    "vimdoc",
+
     -- database
     "sql",
 
