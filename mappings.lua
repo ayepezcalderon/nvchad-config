@@ -1,3 +1,4 @@
+---@type MappingsTable
 local M = {}
 
 M.general = {
@@ -23,20 +24,20 @@ M.general = {
 local neogen_opts = { noremap = true, silent = true }
 M.neogen = {
   n = {
-    ["fd"] = {
+    ["<leader>fd"] = {
       function ()
         require("neogen").generate({ type = 'func' })
       end,
-    "Function docstring",
-    opts = neogen_opts,
+      "Function docstring",
+      opts = neogen_opts,
     },
 
-    ["cd"] = {
+    ["<leader>cd"] = {
       function ()
         require("neogen").generate({ type = 'class' })
       end,
-    "Class docstring",
-    opts = neogen_opts,
+      "Class docstring",
+      opts = neogen_opts,
     },
   },
 }
@@ -44,7 +45,43 @@ M.neogen = {
 M.dap = {
   plugin = true,
   n = {
-    ["<leader>db"] = {"<cmd> DapToggleBreakpoint <CR>", "Debug breakpoint"}
+    ["<leader>db"] = {"<cmd> DapToggleBreakpoint <CR>", "Debug breakpoint"},
+    ['<F5>'] = {function() require('dap').continue() end, "dap continue"},
+    ['<F7>'] = {function() require('dap').step_over() end, "dap step over"},
+    ['<F8>'] = {function() require('dap').step_into() end, "dap step into"},
+    ['<F9>'] = {function() require('dap').step_out() end, "dap step out"},
+    ['<Leader>dh'] = {
+      function()
+        require('dap.ui.widgets').hover()
+      end,
+      "dap hover",
+    },
+    ['<Leader>dp'] = {
+      function()
+        require('dap.ui.widgets').preview()
+      end,
+      "dap preview",
+    },
+    ['<Leader>df'] = {
+      function()
+        local widgets = require('dap.ui.widgets')
+        widgets.centered_float(widgets.frames)
+      end,
+      "dap frames",
+    },
+    ['<Leader>ds'] = {
+      function()
+        local widgets = require('dap.ui.widgets')
+        widgets.centered_float(widgets.scopes)
+      end,
+      "dap scopes",
+    },
+  },
+}
+
+M.dapui = {
+  n = {
+    ["<leader>dui"] = {function() require("dapui").toggle() end, "dapui toggle"},
   }
 }
 
