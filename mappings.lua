@@ -7,6 +7,13 @@ M.general = {
     ["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", "Window right" },
     ["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", "Window down" },
     ["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>", "Window up" },
+
+    ["<leader>tt"] = {
+      function()
+         require("base46").toggle_transparency()
+      end,
+      "toggle transparency",
+    },
   },
 
   v = {
