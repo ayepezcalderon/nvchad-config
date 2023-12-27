@@ -26,7 +26,18 @@ local plugins = {
     "mfussenegger/nvim-dap",
     config = function (_, opts)
       require("core.utils").load_mappings("dap")
-    end
+      -- Open and close repl when debug is initialiaze and terminated/exited
+      local dap = require("dap")
+      dap.listeners.after.event_initialized["dap_repl"] = function ()
+        dap.repl.open()
+      end
+      dap.listeners.before.event_terminated["dap_repl"] = function ()
+        dap.repl.close()
+      end
+      dap.listeners.before.event_exited["dap_repl"] = function ()
+        dap.repl.close()
+      end
+    end,
   },
   {
     "mfussenegger/nvim-dap-python",

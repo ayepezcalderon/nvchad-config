@@ -53,6 +53,21 @@ M.dap = {
   plugin = true,
   n = {
     ["<leader>db"] = {"<cmd> DapToggleBreakpoint <CR>", "Debug breakpoint"},
+    ['<Leader>dr'] = {function() require('dap').repl.toggle() end, "dap repl toggle"},
+    ['<Leader>dcb'] = {
+      function()
+        require('dap').clear_breakpoints()
+      end,
+      "dap clear breakpoints",
+    },
+    ['<Leader>dtc'] = {
+      function()
+        require('dap').run_to_cursor()
+      end,
+      "dap run to cursor",
+    },
+    ['<F2>'] = {function() require('dap').down() end, "dap down"},
+    ['<F3>'] = {function() require('dap').up() end, "dap up"},
     ['<F5>'] = {function() require('dap').continue() end, "dap continue"},
     ['<F7>'] = {function() require('dap').step_over() end, "dap step over"},
     ['<F8>'] = {function() require('dap').step_into() end, "dap step into"},
@@ -89,6 +104,24 @@ M.dap = {
 M.dapui = {
   n = {
     ["<leader>dui"] = {function() require("dapui").toggle() end, "dapui toggle"},
+    ["<leader>dw"] = {
+      function()
+        require("dapui").float_element('watches')
+      end,
+      "dapui watches",
+    },
+    ["<leader>dco"] = {
+      function()
+        require("dapui").float_element('console')
+      end,
+      "dapui console",
+    },
+    ["<leader>dlb"] = {
+      function()
+        require("dapui").float_element('breakpoints')
+      end,
+      "dapui list breakpoints",
+    },
   }
 }
 
