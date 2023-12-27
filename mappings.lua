@@ -1,6 +1,12 @@
 ---@type MappingsTable
 local M = {}
 
+--- Add keymaps to current buffer to easily close it with q and <ESC> in normal mode
+local function set_buf_easy_close_mappings()
+  vim.keymap.set('n', 'q', "<cmd>:q<CR>", { buffer = 0 })
+  vim.keymap.set('n', '<ESC>', "<cmd>:q<CR>", { buffer = 0 })
+end
+
 M.general = {
   n = {
     ["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", "Window left" },
@@ -52,6 +58,7 @@ M.neogen = {
 M.dap = {
   plugin = true,
   n = {
+    -- for general convenience
     ["<leader>db"] = {"<cmd> DapToggleBreakpoint <CR>", "Debug breakpoint"},
     ['<Leader>dr'] = {function() require('dap').repl.toggle() end, "dap repl toggle"},
     ['<Leader>dtm'] = {
@@ -73,15 +80,20 @@ M.dap = {
       end,
       "dap run to cursor",
     },
+
+    -- for debugging actions
     ['<F2>'] = {function() require('dap').down() end, "dap down"},
     ['<F3>'] = {function() require('dap').up() end, "dap up"},
     ['<F5>'] = {function() require('dap').continue() end, "dap continue"},
     ['<F7>'] = {function() require('dap').step_over() end, "dap step over"},
     ['<F8>'] = {function() require('dap').step_into() end, "dap step into"},
     ['<F9>'] = {function() require('dap').step_out() end, "dap step out"},
+
+    -- for widgets
     ['<Leader>dh'] = {
       function()
         require('dap.ui.widgets').hover()
+        set_buf_easy_close_mappings()
       end,
       "dap hover",
     },
@@ -95,6 +107,7 @@ M.dap = {
       function()
         local widgets = require('dap.ui.widgets')
         widgets.centered_float(widgets.frames)
+        set_buf_easy_close_mappings()
       end,
       "dap frames",
     },
@@ -102,6 +115,7 @@ M.dap = {
       function()
         local widgets = require('dap.ui.widgets')
         widgets.centered_float(widgets.scopes)
+        set_buf_easy_close_mappings()
       end,
       "dap scopes",
     },

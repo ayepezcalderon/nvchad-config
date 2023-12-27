@@ -91,7 +91,7 @@ local plugins = {
   {
     "danymat/neogen",
     dependencies = "nvim-treesitter/nvim-treesitter",
-    ft = {"python"},
+    ft = {"python", "lua"},
     opts = function()
       return require "custom.configs.neogen"
     end,
