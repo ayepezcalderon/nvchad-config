@@ -29,9 +29,8 @@ local plugins = {
       require("core.utils").load_mappings("dap")
 
       -- Open and close repl when debug is initialiaze and terminated/exited
-      -- First open and close dapui so that its repl settings apply
-      require('dapui').open()
-      require('dapui').close()
+      -- First enable dapui controls for repl
+      require('dapui.controls').enable_controls(require('dapui').elements['repl'])
       local dap = require("dap")
       dap.listeners.after.event_initialized["dap_repl"] = function ()
         dap.repl.open()
