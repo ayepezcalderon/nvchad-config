@@ -54,6 +54,13 @@ M.dap = {
   n = {
     ["<leader>db"] = {"<cmd> DapToggleBreakpoint <CR>", "Debug breakpoint"},
     ['<Leader>dr'] = {function() require('dap').repl.toggle() end, "dap repl toggle"},
+    ['<Leader>dtm'] = {
+      function()
+        require('dap').terminate()
+        require('dap').repl.close()
+      end,
+      "dap terminate",
+    },
     ['<Leader>dcb'] = {
       function()
         require('dap').clear_breakpoints()
