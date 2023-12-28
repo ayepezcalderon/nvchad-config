@@ -8,6 +8,7 @@ M.ui = {
   hl_override = {
     LineNr = {fg = "orange"},
     Comment = {fg = "light_grey"},
+    IndentBlanklineContextStart = {bg = "NONE"},
   }
 }
 M.plugins = "custom.plugins"
