@@ -1,6 +1,13 @@
 --- @type LazySpec
 local plugins = {
   {
+    "tpope/vim-fugitive",
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    dependencies = "tpope/vim-fugitive",
+  },
+  {
     "RRethy/vim-illuminate",
     ft = {"python", "lua"},
     -- config = function()
