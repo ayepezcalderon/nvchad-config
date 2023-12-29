@@ -1,4 +1,9 @@
+--- @type LazySpec
 local plugins = {
+  {
+    "RRethy/vim-illuminate",
+    ft = {"python", "lua"},
+  },
   {
     "christoomey/vim-tmux-navigator",
     lazy = false,
