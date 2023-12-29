@@ -3,6 +3,12 @@ local plugins = {
   {
     "RRethy/vim-illuminate",
     ft = {"python", "lua"},
+    -- config = function()
+    --   -- Use highlight set by by LSP instead of the default 'underline'
+    --   vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "LspReferenceText" })
+    --   vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "LspReferenceRead" })
+    --   vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "LspReferenceWrite" })
+    -- end
   },
   {
     "christoomey/vim-tmux-navigator",
