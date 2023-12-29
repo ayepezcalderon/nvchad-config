@@ -7,41 +7,15 @@ local plugins = {
     "rcarriga/nvim-dap-ui",
     dependencies = "mfussenegger/nvim-dap",
     config = function ()
-      local dapui = require("dapui")
-      dapui.setup()
-      -- Open and close UI when debug is initialiaze and terminated/exited
-      -- local dap = require("dap")
-      -- dap.listeners.after.event_initialized["dapui_config"] = function ()
-      --   dapui.open()
-      -- end
-      -- dap.listeners.before.event_terminated["dapui_config"] = function ()
-      --   dapui.close()
-      -- end
-      -- dap.listeners.before.event_exited["dapui_config"] = function ()
-      --   dapui.close()
-      -- end
+      require("dapui").setup()
+      require("core.utils").load_mappings("dapui")
+      require("custom.configs.dapui").load_repl_ui()
     end,
   },
   {
     "mfussenegger/nvim-dap",
-    dependencies = "rcarriga/nvim-dap-ui",
     config = function (_, opts)
       require("core.utils").load_mappings("dap")
-
-      -- Open and close repl when debug is initialiaze and terminated/exited
-      -- First enable dapui controls for repl
-      require('dapui.controls').enable_controls(require('dapui').elements['repl'])
-      require('dapui.controls').refresh_control_panel()
-      local dap = require("dap")
-      dap.listeners.after.event_initialized["dap_repl"] = function ()
-        dap.repl.open()
-      end
-      dap.listeners.before.event_terminated["dap_repl"] = function ()
-        dap.repl.close()
-      end
-      dap.listeners.before.event_exited["dap_repl"] = function ()
-        dap.repl.close()
-      end
     end,
   },
   {

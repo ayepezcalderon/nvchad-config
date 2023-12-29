@@ -1,0 +1,37 @@
+local M = {}
+
+local dapui = require("dapui")
+local dap = require("dap")
+
+--- Loads default ui of nvim-dapui
+function M.load_dapui()
+  -- Open and close UI when debug is initialiaze and terminated/exited
+  dap.listeners.after.event_initialized["dapui_config"] = function ()
+    dapui.open()
+  end
+  dap.listeners.before.event_terminated["dapui_config"] = function ()
+    dapui.close()
+  end
+  dap.listeners.before.event_exited["dapui_config"] = function ()
+    dapui.close()
+  end
+end
+
+--- Loads ui composed of a repl with the repl controls given by nbim-dapui
+function M.load_repl_ui()
+  -- Open and close repl when debug is initialiaze and terminated/exited
+  -- First enable dapui controls for repl
+  require('dapui.controls').enable_controls(require('dapui').elements['repl'])
+  require('dapui.controls').refresh_control_panel()
+  dap.listeners.after.event_initialized["dap_repl"] = function ()
+    dap.repl.open()
+  end
+  dap.listeners.before.event_terminated["dap_repl"] = function ()
+    dap.repl.close()
+  end
+  dap.listeners.before.event_exited["dap_repl"] = function ()
+    dap.repl.close()
+  end
+end
+
+return M

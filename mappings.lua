@@ -57,6 +57,7 @@ M.neogen = {
 
 M.dap = {
   plugin = true,
+
   n = {
     -- for general convenience
     ["<leader>db"] = {"<cmd> DapToggleBreakpoint <CR>", "Debug breakpoint"},
@@ -123,6 +124,8 @@ M.dap = {
 }
 
 M.dapui = {
+  plugin = true,
+
   n = {
     ["<leader>dui"] = {function() require("dapui").toggle() end, "dapui toggle"},
     ["<leader>dw"] = {
