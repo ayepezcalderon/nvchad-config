@@ -36,6 +36,8 @@ M.general = {
 
 local neogen_opts = { noremap = true, silent = true }
 M.neogen = {
+  plugin = true,
+
   n = {
     ["<leader>fd"] = {
       function ()

@@ -87,6 +87,10 @@ local plugins = {
     opts = function()
       return require "custom.configs.neogen"
     end,
+    config = function (self, opts)
+      require("neogen").setup(opts)
+      require("core.utils").load_mappings("neogen")
+    end
     -- Uncomment next line if you want to follow only stable versions
     -- version = "*" 
   },
