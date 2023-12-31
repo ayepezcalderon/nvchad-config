@@ -11,7 +11,11 @@ local bp_groups = {
 --- Creates the colors for the stop dap hl
 local function stop_hl()
   local group = 'DapStopped'
-  vim.fn.sign_define(group, {texthl=group, linehl=group, numhl=''})
+  local linehl = nil
+  if vim.api.nvim_get_hl(0, {name=group}).bg and group then
+    linehl = group
+  end
+  vim.fn.sign_define(group, {text=nil, texthl=group, linehl=linehl, numhl=''})
 end
 
 --- Creates symbols for dap breakpoints

@@ -60,7 +60,8 @@ local plugins = {
       "theHamsta/nvim-dap-virtual-text"
     },
     config = function (_, opts)
-      dofile(vim.g.base46_cache .. "dap")
+      -- uncomment to use nvchad cached colors
+      -- dofile(vim.g.base46_cache .. "dap")
       require("core.utils").load_mappings("dap")
       require("custom.configs.dap").color_hls()
     end,
