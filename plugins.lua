@@ -97,7 +97,13 @@ local plugins = {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = require("custom.configs.treesitter")
+    opts = function ()
+      return vim.tbl_deep_extend(
+        "force",
+        require("plugins.configs.treesitter"),
+        require("custom.configs.treesitter")
+      )
+    end
   },
   {
     "danymat/neogen",
