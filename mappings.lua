@@ -34,6 +34,49 @@ M.general = {
   },
 }
 
+M.trouble = {
+  plugin = true,
+
+  n = {
+    ["<leader>tx"] = {
+      function()
+        require("trouble").toggle()
+      end,
+    "Toggle trouble",
+    },
+    ["<leader>tw"] = {
+      function()
+        require("trouble").toggle("workspace_diagnostics")
+      end,
+    "Toggle workspace diagnostics",
+    },
+    ["<leader>tg"] = {
+      function()
+        require("trouble").toggle("document_diagnostics")
+      end,
+    "Toggle document diagnostics",
+    },
+    ["<leader>tq"] = {
+      function()
+        require("trouble").toggle("quickfix")
+      end,
+    "Toggle quickfix",
+    },
+    ["<leader>tl"] = {
+      function()
+        require("trouble").toggle("loclist")
+      end,
+    "Toggle loclist",
+    },
+    ["<leader>tr"] = {
+      function()
+        require("trouble").toggle("lsp_references")
+      end,
+    "Toggle LSP references",
+    },
+  },
+}
+
 local neogen_opts = { noremap = true, silent = true }
 M.neogen = {
   plugin = true,

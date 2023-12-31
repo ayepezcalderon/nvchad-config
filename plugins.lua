@@ -1,6 +1,25 @@
 --- @type LazySpec
 local plugins = {
   {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    ft = {'python', 'lua'},
+    config = function (_, opts)
+      require("trouble").setup(opts)
+      require("core.utils").load_mappings("trouble")
+    end
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = function ()
+      return vim.tbl_deep_extend(
+        "force",
+        require("plugins.configs.telescope"),
+        require("custom.configs.telescope")
+      )
+    end
+  },
+  {
     "tpope/vim-fugitive",
   },
   {
@@ -87,7 +106,7 @@ local plugins = {
     opts = function()
       return require "custom.configs.neogen"
     end,
-    config = function (self, opts)
+    config = function (_, opts)
       require("neogen").setup(opts)
       require("core.utils").load_mappings("neogen")
     end
