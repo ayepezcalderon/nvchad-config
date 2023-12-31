@@ -1,6 +1,8 @@
 ---@type MappingsTable
 local M = {}
 
+-- local utils = require("core.utils")
+
 --- Add keymaps to current buffer to easily close it with q and <ESC> in normal mode
 local function set_buf_easy_close_mappings()
   vim.keymap.set('n', 'q', "<cmd>:q<CR>", { buffer = 0 })
@@ -188,6 +190,12 @@ M.dapui = {
       function()
         require('dap').repl.close()
         require("dapui").toggle()
+        vim.defer_fn(
+          function()
+            require('dapui.controls').refresh_control_panel()
+            print(9)
+          end,
+          1)
       end,
       "dapui toggle"
     },

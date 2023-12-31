@@ -9,6 +9,7 @@ function M.load_dapui()
   dap.listeners.after.event_initialized["dapui_config"] = function ()
     dap.repl.close()
     dapui.open()
+    require('dapui.controls').refresh_control_panel()
   end
   dap.listeners.before.event_terminated["dapui_config"] = function ()
     dap.repl.close()
@@ -25,9 +26,9 @@ function M.load_repl_ui()
   -- Open and close repl when debug is initialiaze and terminated/exited
   -- First enable dapui controls for repl
   require('dapui.controls').enable_controls(require('dapui').elements['repl'])
-  require('dapui.controls').refresh_control_panel()
   dap.listeners.after.event_initialized["dap_repl"] = function ()
     dapui.close()
+    require('dapui.controls').refresh_control_panel()
     dap.repl.open()
   end
   dap.listeners.before.event_terminated["dap_repl"] = function ()
