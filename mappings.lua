@@ -117,7 +117,13 @@ M.dap = {
         require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))
       end
     },
-    ['<Leader>dr'] = {function() require('dap').repl.toggle() end, "dap repl toggle"},
+    ['<Leader>dr'] = {
+      function()
+        require('dapui').close()
+        require('dap').repl.toggle()
+      end,
+      "dap repl toggle"
+    },
     ['<Leader>dcb'] = {
       function()
         require('dap').clear_breakpoints()
@@ -185,7 +191,12 @@ M.dapui = {
   plugin = true,
 
   n = {
-    ["<leader>dui"] = {function() require("dapui").toggle() end, "dapui toggle"},
+    ["<leader>dui"] = {function()
+      require('dap').repl.close()
+      require("dapui").toggle()
+    end,
+      "dapui toggle"
+    },
     ["<leader>dw"] = {
       function()
         require("dapui").float_element('watches')

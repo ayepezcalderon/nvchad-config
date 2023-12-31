@@ -13,6 +13,7 @@ function M.load_dapui()
     dapui.close()
   end
   dap.listeners.before.event_exited["dapui_config"] = function ()
+    dap.repl.close()
     dapui.close()
   end
 end
@@ -31,6 +32,7 @@ function M.load_repl_ui()
   end
   dap.listeners.before.event_exited["dap_repl"] = function ()
     dap.repl.close()
+    dapui.close()
   end
 end
 
