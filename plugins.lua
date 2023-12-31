@@ -42,7 +42,7 @@ local plugins = {
   },
   {
     "rcarriga/nvim-dap-ui",
-    dependencies = "mfussenegger/nvim-dap",
+    -- dependencies = "mfussenegger/nvim-dap",
     config = function ()
       require("dapui").setup()
       require("core.utils").load_mappings("dapui")
@@ -50,7 +50,15 @@ local plugins = {
     end,
   },
   {
+    "theHamsta/nvim-dap-virtual-text",
+    opts = {},
+  },
+  {
     "mfussenegger/nvim-dap",
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+      "theHamsta/nvim-dap-virtual-text"
+    },
     config = function (_, opts)
       require("core.utils").load_mappings("dap")
     end,
@@ -60,7 +68,6 @@ local plugins = {
     ft = "python",
     dependencies = {
       "mfussenegger/nvim-dap",
-      "rcarriga/nvim-dap-ui",
     },
     config = function (_, opts)
       local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
