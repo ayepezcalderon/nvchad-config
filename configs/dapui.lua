@@ -7,9 +7,11 @@ local dap = require("dap")
 function M.load_dapui()
   -- Open and close UI when debug is initialiaze and terminated/exited
   dap.listeners.after.event_initialized["dapui_config"] = function ()
+    dap.repl.close()
     dapui.open()
   end
   dap.listeners.before.event_terminated["dapui_config"] = function ()
+    dap.repl.close()
     dapui.close()
   end
   dap.listeners.before.event_exited["dapui_config"] = function ()
@@ -25,10 +27,12 @@ function M.load_repl_ui()
   require('dapui.controls').enable_controls(require('dapui').elements['repl'])
   require('dapui.controls').refresh_control_panel()
   dap.listeners.after.event_initialized["dap_repl"] = function ()
+    dapui.close()
     dap.repl.open()
   end
   dap.listeners.before.event_terminated["dap_repl"] = function ()
     dap.repl.close()
+    dapui.close()
   end
   dap.listeners.before.event_exited["dap_repl"] = function ()
     dap.repl.close()

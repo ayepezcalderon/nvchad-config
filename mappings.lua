@@ -145,14 +145,7 @@ M.dap = {
     ['<F7>'] = {function() require('dap').step_over() end, "dap step over"},
     ['<F8>'] = {function() require('dap').step_into() end, "dap step into"},
     ['<F9>'] = {function() require('dap').step_out() end, "dap step out"},
-    ['<F12>'] = {
-      function()
-        require('dap').terminate()
-        require('dapui').close()
-        require('dap').repl.close()
-      end,
-      "dap terminate",
-    },
+    ['<F12>'] = {function() require('dap').terminate() end, "dap terminate"},
 
     -- for widgets
     ['<Leader>dh'] = {
@@ -191,10 +184,11 @@ M.dapui = {
   plugin = true,
 
   n = {
-    ["<leader>dui"] = {function()
-      require('dap').repl.close()
-      require("dapui").toggle()
-    end,
+    ["<leader>dui"] = {
+      function()
+        require('dap').repl.close()
+        require("dapui").toggle()
+      end,
       "dapui toggle"
     },
     ["<leader>dw"] = {
