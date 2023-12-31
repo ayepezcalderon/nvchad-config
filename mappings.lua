@@ -1,13 +1,7 @@
 ---@type MappingsTable
 local M = {}
 
--- local utils = require("core.utils")
-
---- Add keymaps to current buffer to easily close it with q and <ESC> in normal mode
-local function set_buf_easy_close_mappings()
-  vim.keymap.set('n', 'q', "<cmd>:q<CR>", { buffer = 0 })
-  vim.keymap.set('n', '<ESC>', "<cmd>:q<CR>", { buffer = 0 })
-end
+local utils = require("custom.utils")
 
 M.general = {
   n = {
@@ -153,7 +147,7 @@ M.dap = {
     ['<Leader>dh'] = {
       function()
         require('dap.ui.widgets').hover()
-        set_buf_easy_close_mappings()
+        utils.set_buf_easy_close_mappings()
       end,
       "dap hover",
     },
@@ -167,7 +161,7 @@ M.dap = {
       function()
         local widgets = require('dap.ui.widgets')
         widgets.centered_float(widgets.frames)
-        set_buf_easy_close_mappings()
+        utils.set_buf_easy_close_mappings()
       end,
       "dap frames",
     },
@@ -175,7 +169,7 @@ M.dap = {
       function()
         local widgets = require('dap.ui.widgets')
         widgets.centered_float(widgets.scopes)
-        set_buf_easy_close_mappings()
+        utils.set_buf_easy_close_mappings()
       end,
       "dap scopes",
     },
@@ -190,12 +184,7 @@ M.dapui = {
       function()
         require('dap').repl.close()
         require("dapui").toggle()
-        vim.defer_fn(
-          function()
-            require('dapui.controls').refresh_control_panel()
-            print(9)
-          end,
-          1)
+        utils.delayed_dap_controls_refresh()
       end,
       "dapui toggle"
     },

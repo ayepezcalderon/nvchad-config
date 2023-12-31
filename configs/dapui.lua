@@ -2,6 +2,7 @@ local M = {}
 
 local dapui = require("dapui")
 local dap = require("dap")
+local utils = require("custom.utils")
 
 --- Loads default ui of nvim-dapui
 function M.load_dapui()
@@ -9,7 +10,7 @@ function M.load_dapui()
   dap.listeners.after.event_initialized["dapui_config"] = function ()
     dap.repl.close()
     dapui.open()
-    require('dapui.controls').refresh_control_panel()
+    utils.delayed_dap_controls_refresh()
   end
   dap.listeners.before.event_terminated["dapui_config"] = function ()
     dap.repl.close()
