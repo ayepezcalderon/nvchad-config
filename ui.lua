@@ -1,7 +1,5 @@
 --- @type UIConfig
 local ui = {
-  theme = 'catppuccin',
-  transparency = true,
   hl_override = {
     LineNr = {fg = "orange"},
     Comment = {fg = "light_grey"},
