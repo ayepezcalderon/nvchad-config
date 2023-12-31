@@ -8,10 +8,12 @@ local ui = {
     IndentBlanklineContextStart = {bg = "NONE"},
 
     -- dap
-    DapBreakpoint = {fg = "red"},
-    DapStopped = {bg = "sun"}
+    -- DapBreakpoint = {fg = "red"},
+    -- DapStopped = {bg = "sun"}
   },
-  -- extended_integrations = {"dap"}
+  extended_integrations = {
+    "dap",
+  }
 }
 
 return ui
