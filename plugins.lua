@@ -60,6 +60,7 @@ local plugins = {
       "theHamsta/nvim-dap-virtual-text"
     },
     config = function (_, opts)
+      -- dofile(vim.g.base46_cache .. "dap")
       require("core.utils").load_mappings("dap")
     end,
   },

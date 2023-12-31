@@ -106,14 +106,18 @@ M.dap = {
   n = {
     -- for general convenience
     ["<leader>db"] = {"<cmd> DapToggleBreakpoint <CR>", "Debug breakpoint"},
-    ['<Leader>dr'] = {function() require('dap').repl.toggle() end, "dap repl toggle"},
-    ['<Leader>dtm'] = {
+    ["<leader>dB"] = {
       function()
-        require('dap').terminate()
-        require('dap').repl.close()
+        require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: '))
       end,
-      "dap terminate",
+      "Breakpoint Condition",
     },
+    ['<Leader>lp'] = {
+      function()
+        require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))
+      end
+    },
+    ['<Leader>dr'] = {function() require('dap').repl.toggle() end, "dap repl toggle"},
     ['<Leader>dcb'] = {
       function()
         require('dap').clear_breakpoints()
@@ -130,10 +134,19 @@ M.dap = {
     -- for debugging actions
     ['<F2>'] = {function() require('dap').down() end, "dap down"},
     ['<F3>'] = {function() require('dap').up() end, "dap up"},
+    ['<F4>'] = {function() require('dap').run_last() end, "dap run last"},
     ['<F5>'] = {function() require('dap').continue() end, "dap continue"},
     ['<F7>'] = {function() require('dap').step_over() end, "dap step over"},
     ['<F8>'] = {function() require('dap').step_into() end, "dap step into"},
     ['<F9>'] = {function() require('dap').step_out() end, "dap step out"},
+    ['<F12>'] = {
+      function()
+        require('dap').terminate()
+        require('dapui').close()
+        require('dap').repl.close()
+      end,
+      "dap terminate",
+    },
 
     -- for widgets
     ['<Leader>dh'] = {
