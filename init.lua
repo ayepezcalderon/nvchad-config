@@ -22,3 +22,9 @@ vim.api.nvim_create_user_command('ToggleIndentBlanklineContextStart', toggle_con
   desc = 'Toggle highlighting for IndentBlanklineContextStart',
 })
 
+
+------------------------------------ autocommands ---------------------------------------
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile", "BufEnter", "BufWinEnter"}, {
+  pattern = {"*.py"},
+  callback = function() opt.colorcolumn = '88' end,
+})
