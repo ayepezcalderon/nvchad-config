@@ -221,6 +221,74 @@ M.dap_python = {
   }
 }
 
+M.harpoon = {
+  plugin = true,
+
+  n = {
+   ["<leader>ja"] = {
+      function()
+        require("harpoon"):list():append()
+      end,
+      "Harpoon append",
+    },
+   ["<leader>jr"] = {
+      function()
+        require("harpoon"):list():remove()
+      end,
+      "Harpoon remove",
+    },
+   ["<leader>jc"] = {
+      function()
+        require("harpoon"):list():clear()
+      end,
+      "Harpoon clear",
+    },
+    ["<leader>jj"] = {
+      function()
+        require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
+      end,
+      "Harpoon toggle quick menu",
+    },
+    ["<A-h>"] = {
+      function()
+        require("harpoon"):list():select(1)
+      end,
+      "Harpoon select 1",
+    },
+    ["<A-j>"] = {
+      function()
+        require("harpoon"):list():select(2)
+      end,
+      "Harpoon select 2",
+    },
+    ["<A-k>"] = {
+      function()
+        require("harpoon"):list():select(3)
+      end,
+      "Harpoon select 3",
+    },
+    ["<A-l>"] = {
+      function()
+        require("harpoon"):list():select(4)
+      end,
+      "Harpoon select 4",
+    },
+    -- Toggle previous & next buffers stored within Harpoon list
+    ["<A-o>"] = {
+      function()
+        require("harpoon"):list():prev()
+      end,
+      "Harpoon previous",
+    },
+    ["<A-p>"] = {
+      function()
+        require("harpoon"):list():next()
+      end,
+      "Harpoon next",
+    },
+  },
+}
+
 M.black = {
   n = {
     ["<leader>kn"] = {

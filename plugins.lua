@@ -143,6 +143,19 @@ local plugins = {
     -- Uncomment next line if you want to follow only stable versions
     -- version = "*" 
   },
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    lazy = false,
+    opts = function()
+      return require("custom.configs.harpoon")
+    end,
+    config = function(_, opts)
+      require("harpoon"):setup(opts)
+      require("core.utils").load_mappings("harpoon")
+    end
+  }
 }
 
 return plugins
