@@ -24,27 +24,7 @@ vim.api.nvim_create_user_command('ToggleIndentBlanklineContextStart', toggle_con
 
 
 ------------------------------------ autocommands ---------------------------------------
--- Adds colorcolumn for python
-vim.api.nvim_create_augroup('colorcolumns', { clear = true })
 vim.api.nvim_create_autocmd({"BufRead", "BufNewFile", "BufEnter", "BufWinEnter"}, {
   pattern = {"*.py"},
-  group = 'colorcolumns',
   callback = function() opt.colorcolumn = '88' end,
 })
-
--- Adds and removes files to harpoon upon opening or closing them
--- Allows for integration with tabufline
--- vim.api.nvim_create_augroup('harpoon_personal', { clear = true })
--- vim.api.nvim_create_autocmd({"BufAdd"}, {
---   pattern = '*',
---   group = 'harpoon_personal',
---   -- callback = function() require("harpoon"):list():append(vim.cmd(":expand('#:p')")) end,
---   callback = function() require("harpoon"):list():append() end,
--- })
--- vim.api.nvim_create_autocmd({"BufDelete"}, {
---   -- pattern = '*',
---   buffer = function() vim.fn.bufnr('#') end,
---   group = 'harpoon_personal',
---   callback = function() require("harpoon"):list():remove() end,
--- })
---
