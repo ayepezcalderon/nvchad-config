@@ -116,7 +116,7 @@ M.dap = {
     ['<Leader>dr'] = {
       function()
         require('dapui').close()
-        require('dap').repl.toggle()
+        utils.custom_dap_repl_toggle(false)
       end,
       "dap repl toggle"
     },
