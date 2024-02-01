@@ -16,6 +16,8 @@ M.general = {
       end,
       "toggle transparency",
     },
+
+    ["<C-p>"] = { "<C-I>", "Jump to next (<C-i> remap)" },
   },
 
   v = {
