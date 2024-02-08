@@ -3,6 +3,7 @@ local opt = vim.opt
 -------------------------------------- options ------------------------------------------
 -- Numbers
 opt.relativenumber = true
+vim.cmd('set nofixeol')
 
 -------------------------------------- commands -----------------------------------------
 --- toggles highlight for IndentBlanklineContextStart from given color to nothing
