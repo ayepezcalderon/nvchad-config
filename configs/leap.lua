@@ -1,8 +1,11 @@
 -- Mappings
--- This function is a copy-paste from leap.create_default_mappings, EXCEPT that the leap keys are arguments 
+-- This function is a copy-paste from leap.create_default_mappings, with some exceptions
+-- 1. The leap keys are arguments
+-- 2. There is the option to override keys instead of raising warning
 -- Needed due to some conflict with lazy.nvim
 ---@param leap_keys table<string>
-local function create_default_mappings(leap_keys)
+---@param force boolean
+local function create_default_mappings(leap_keys, force)
   for _, _1_ in ipairs({{{"n", "x", "o"}, leap_keys[1], "<Plug>(leap-forward)", "Leap forward"}, {{"n", "x", "o"}, leap_keys[2], "<Plug>(leap-backward)", "Leap backward"}, {{"n", "x", "o"}, leap_keys[3], "<Plug>(leap-from-window)", "Leap from window"}}) do
     local _each_2_ = _1_
     local modes = _each_2_[1]
@@ -11,7 +14,7 @@ local function create_default_mappings(leap_keys)
     local desc = _each_2_[4]
     for _0, mode in ipairs(modes) do
       local rhs_2a = vim.fn.mapcheck(lhs, mode)
-      if (rhs_2a == "") then
+      if (rhs_2a == "") or force then
         vim.keymap.set(mode, lhs, rhs, {silent = true, desc = desc})
       else
         if (rhs_2a ~= rhs) then
@@ -24,7 +27,7 @@ local function create_default_mappings(leap_keys)
   end
   return nil
 end
-create_default_mappings({"s", "S", "GS"})
+create_default_mappings({"s", "S", "gs"}, true)
 
 -- Suggested additional tweaks
 require('leap').opts.special_keys.prev_target = '<bs>'
