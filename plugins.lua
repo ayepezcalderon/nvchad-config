@@ -15,7 +15,7 @@ local plugins = {
     lazy = false,
     config = function (_, opts)
       require("custom.configs.leap")
-    end
+    end,
   },
   {
     "jackMort/ChatGPT.nvim",
