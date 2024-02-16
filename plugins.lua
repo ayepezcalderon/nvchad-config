@@ -54,6 +54,10 @@ local plugins = {
     "tpope/vim-fugitive",
   },
   {
+    "tpope/vim-repeat",
+    lazy = false,
+  },
+  {
     "lewis6991/gitsigns.nvim",
     dependencies = "tpope/vim-fugitive",
   },
