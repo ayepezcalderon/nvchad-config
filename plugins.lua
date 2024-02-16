@@ -1,6 +1,13 @@
 --- @type LazySpec
 local plugins = {
   {
+    "ggandor/leap.nvim",
+    lazy = false,
+    config = function (_, opts)
+      require("custom.configs.leap")
+    end
+  },
+  {
     "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
     config = function()
