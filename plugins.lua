@@ -1,6 +1,24 @@
 --- @type LazySpec
 local plugins = {
   {
+    "zbirenbaum/copilot.lua",
+    -- event = "InsertEnter",
+    ft = {
+      "python",
+      "lua",
+      "javascript",
+      "typescript",
+      "c",
+      "cpp",
+      "rust",
+      "bash",
+    },
+    build = ":Copilot auth",
+    opts = function ()
+      return require("custom.configs.copilot")
+    end
+  },
+  {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
