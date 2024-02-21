@@ -1,8 +1,15 @@
 local opts = {
   filetypes = {
     markdown = true,
-    help = true,
-    yaml = true,
+    python = true,
+    lua = true,
+    javascript = true,
+    typescript = true,
+    c = true,
+    cpp = true,
+    rust = true,
+    sh = true,
+    ["*"] = false,
   },
   suggestion = {
     auto_trigger = true,
