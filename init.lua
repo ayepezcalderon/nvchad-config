@@ -1,8 +1,10 @@
 local opt = vim.opt
+local o = vim.o
 
 -------------------------------------- options ------------------------------------------
 -- Numbers
 opt.relativenumber = true
+o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 vim.cmd('set nofixeol')
 
 -------------------------------------- commands -----------------------------------------

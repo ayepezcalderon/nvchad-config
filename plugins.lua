@@ -1,6 +1,17 @@
 --- @type LazySpec
 local plugins = {
   {
+    'rmagatti/auto-session',
+    lazy = false,
+    opts = function()
+      return require("custom.configs.auto-session")
+    end,
+    config = function(_, opts)
+      require("auto-session").setup(opts)
+      require("core.utils").load_mappings("auto_session")
+    end
+  },
+  {
     "zbirenbaum/copilot.lua",
     event = "InsertEnter",
     build = ":Copilot auth",

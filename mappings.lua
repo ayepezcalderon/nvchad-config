@@ -223,6 +223,18 @@ M.dap_python = {
   }
 }
 
+M.auto_session = {
+  plugin = true,
+  n = {
+    ["<leader>fs"] = {
+      function ()
+        require("auto-session.session-lens").search_session()
+      end,
+      "Find session"
+    }
+  }
+}
+
 M.black = {
   n = {
     ["<leader>kn"] = {
