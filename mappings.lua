@@ -159,14 +159,15 @@ M.dap = {
       end,
       "dap preview",
     },
-    ['<Leader>df'] = {
-      function()
-        local widgets = require('dap.ui.widgets')
-        widgets.centered_float(widgets.frames)
-        utils.set_buf_easy_close_mappings()
-      end,
-      "dap frames",
-    },
+    -- replaced in favor of telescope_dap
+    -- ['<Leader>df'] = {
+    --   function()
+    --     local widgets = require('dap.ui.widgets')
+    --     widgets.centered_float(widgets.frames)
+    --     utils.set_buf_easy_close_mappings()
+    --   end,
+    --   "dap frames",
+    -- },
     ['<Leader>ds'] = {
       function()
         local widgets = require('dap.ui.widgets')
@@ -202,12 +203,13 @@ M.dapui = {
       end,
       "dapui console",
     },
-    ["<leader>dlb"] = {
-      function()
-        require("dapui").float_element('breakpoints')
-      end,
-      "dapui list breakpoints",
-    },
+    -- replaced in favor of telescope_dap
+    -- ["<leader>dlb"] = {
+    --   function()
+    --     require("dapui").float_element('breakpoints')
+    --   end,
+    --   "dapui list breakpoints",
+    -- },
   }
 }
 
@@ -220,6 +222,24 @@ M.dap_python = {
       end,
       "Debug python run"
     }
+  }
+}
+
+M.telescope_dap = {
+  plugin = true,
+  n = {
+    ["<leader>dlb"] = {
+      function()
+        require'telescope'.extensions.dap.list_breakpoints{}
+      end,
+      "List breakpoints",
+    },
+    ['<Leader>df'] = {
+      function()
+        require'telescope'.extensions.dap.frames{}
+      end,
+      "dap frames",
+    },
   }
 }
 
