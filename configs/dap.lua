@@ -1,5 +1,11 @@
 local M = {}
 
+-- Telescope functionality
+-- Here for lazy loading only on dap demand, not on telescope demand
+require("telescope").load_extension("dap")
+
+
+-- Colors for the dap highlight groups
 local bp_groups = {
   'DapBreakpoint',
   'DapBreakpointCondition',
