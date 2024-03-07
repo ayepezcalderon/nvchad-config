@@ -21,8 +21,8 @@ local opts = {
       i = { ["<c-t>"] = trouble.open_with_trouble },
       n = { ["<c-t>"] = trouble.open_with_trouble },
     },
-  extensions_list = extensions_list,
   },
+  extensions_list = extensions_list,
 }
 
 return opts
