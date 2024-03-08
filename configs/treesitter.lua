@@ -40,9 +40,6 @@ local opts = {
 
     -- regex
     "regex",
-
-    -- dap repl
-    "dap_repl",
   },
 }
 

@@ -113,8 +113,6 @@ local plugins = {
       "rcarriga/nvim-dap-ui",
       "theHamsta/nvim-dap-virtual-text",
       "nvim-telescope/telescope-dap.nvim",
-      "rcarriga/cmp-dap",
-      "nvim-treesitter/nvim-treesitter", -- for nvim-dap-repl-highlights
     },
     config = function (_, opts)
       -- uncomment to use nvchad cached colors
@@ -170,16 +168,13 @@ local plugins = {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-      { 'LiadOz/nvim-dap-repl-highlights', config = true , branch = 'LiadOz/fix-check-parser' },
-    },
     opts = function ()
       return vim.tbl_deep_extend(
         "force",
         require("plugins.configs.treesitter"),
         require("custom.configs.treesitter")
       )
-    end,
+    end
   },
   {
     "danymat/neogen",
@@ -194,23 +189,6 @@ local plugins = {
     end
     -- Uncomment next line if you want to follow only stable versions
     -- version = "*" 
-  },
-  {
-    "hrsh7th/nvim-cmp",
-    opts = function ()
-      return vim.tbl_deep_extend(
-        "force",
-        require("plugins.configs.cmp"),
-        require("custom.configs.cmp.opts")
-      )
-    end,
-    config = function (_, opts)
-      -- this is the config in plugins init.lua
-      -- check if this is still the case upon updating nvchad
-      require("cmp").setup(opts)
-      -- call custom extra setup commands
-      require("custom.configs.cmp.setup")
-    end
   },
 }
 
