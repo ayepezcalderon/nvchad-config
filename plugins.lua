@@ -100,7 +100,7 @@ local plugins = {
     config = function ()
       require("dapui").setup()
       require("core.utils").load_mappings("dapui")
-      require("custom.configs.dapui").load_repl_controls()
+      require("custom.configs.dapui").load_repl_controls(true, false)
     end,
   },
   {
