@@ -2,7 +2,7 @@ local dap = require('dap')
 local configs = dap.configurations.python
 
 dap.configurations.python = configs
-table.insert(configs, {
+table.insert(configs, 1, {
   type = 'python';
   request = 'launch';
   name = 'Launch file (justMyCode = false)';
@@ -10,7 +10,7 @@ table.insert(configs, {
   console = 'integratedTerminal';
   justMyCode = false;
 })
-table.insert(configs, {
+table.insert(configs, 2, {
   type = 'python';
   request = 'launch';
   name = 'Launch file with arguments (justMyCode = false)';
