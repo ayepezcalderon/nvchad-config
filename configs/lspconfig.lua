@@ -32,8 +32,17 @@ lspconfig.texlab.setup({
       diagnosticsDelay = 50,
       formatterLineLength = 80,
       forwardSearch = {
-        args = {"-f", "%l", "%p", "\"code -g %f:%l\""},
-        executable = "evince-synctex",
+        -- -- evince-synctex
+        -- args = {"-f", "%l", "%p", "\"code -g %f:%l\""},
+        -- executable = "evince-synctex",
+
+        -- okular
+        args = {"--unique", "file:%p#src:%l%f"},
+        executable = "okular",
+
+        -- -- zathura
+        -- args = {"--synctex-forward", "%l:1:%f", "%p"},
+        -- executable = "zathura",
       },
       latexFormatter = "texlab",
       latexindent = {
