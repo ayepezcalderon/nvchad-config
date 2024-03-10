@@ -22,14 +22,14 @@ lspconfig.texlab.setup({
       build = {
         args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
         executable = "latexmk",
-        forwardSearchAfter = false,
-        onSave = false
+        forwardSearchAfter = true,
+        onSave = false,
       },
       chktex = {
         onEdit = false,
-        onOpenAndSave = false
+        onOpenAndSave = true
       },
-      diagnosticsDelay = 300,
+      diagnosticsDelay = 50,
       formatterLineLength = 80,
       forwardSearch = {
         args = {"-f", "%l", "%p", "\"code -g %f:%l\""},
