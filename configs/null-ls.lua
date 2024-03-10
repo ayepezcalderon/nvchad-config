@@ -3,12 +3,8 @@ local null_ls = require('null-ls')
 
 local opts = {
   sources = {
-    null_ls.builtins.diagnostics.ruff,
-    -- Black formatting and yapf range_formatting
-    -- Black does formatting because it is before yapf
-    -- yapf does range_formatting because black cannot do this
-    null_ls.builtins.formatting.black,
-    null_ls.builtins.formatting.yapf,
+    -- null_ls.builtins.diagnostics.ruff,  -- not supported by none-ls
+    null_ls.builtins.formatting.black,  -- also supports range_formatting in none-ls
   },
   -- on_attach = function(client, bufnr)
   --   if client.supports_method("textDocument/formatting") then
