@@ -5,6 +5,8 @@ local opts = {
     "black",
     "yapf",
     "ruff",
+    "texlab",
+    "latexindent",
   },
 }
 
