@@ -202,6 +202,13 @@ local plugins = {
       require("custom.configs.cmp.setup")
     end
   },
+  {
+    "lervag/vimtex",
+    lazy = false,
+    init = function()
+      require("custom.configs.vimtex")
+    end
+  },
 }
 
 return plugins

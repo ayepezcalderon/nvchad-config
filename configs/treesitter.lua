@@ -41,6 +41,13 @@ local opts = {
     -- regex
     "regex",
   },
+  highlight = {
+    enable = true,
+    use_languagetree = true,
+    disable = {
+      "latex",
+    },
+  },
 }
 
 return opts
