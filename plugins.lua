@@ -150,15 +150,9 @@ local plugins = {
   },
   {
     "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "pyright",
-        "debugpy",
-        "black",
-        "yapf",
-        "ruff",
-      },
-    },
+    opts = function ()
+      return require("custom.configs.mason")
+    end
   },
   {
     "neovim/nvim-lspconfig",
