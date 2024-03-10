@@ -1,4 +1,4 @@
-M = {}
+local M = {}
 
 --- Add keymaps to current buffer to easily close it with q and <ESC> in normal mode
 function M.set_buf_easy_close_mappings()
