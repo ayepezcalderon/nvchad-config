@@ -5,7 +5,11 @@ local opts = {
   sources = {
     -- null_ls.builtins.diagnostics.ruff,  -- not supported by none-ls
     null_ls.builtins.formatting.black,  -- also supports range_formatting in none-ls
-    -- null_ls.builtins.diagnostics.textidote,
+    null_ls.builtins.diagnostics.textidote.with({
+      cwd = function(params)
+        return "/opt/textidote/"
+      end,
+    }),
   },
   -- on_attach = function(client, bufnr)
   --   if client.supports_method("textDocument/formatting") then

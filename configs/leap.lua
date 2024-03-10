@@ -32,9 +32,9 @@ create_default_mappings({"s", "S", "gs"}, true)
 -- Suggested additional tweaks
 require('leap').opts.special_keys.prev_target = '<bs>'
 require('leap').opts.special_keys.prev_group = '<bs>'
-require('leap').opts.special_keys.next_target = '\\'
-require('leap').opts.special_keys.next_group = '\\'
-require('leap.user').set_repeat_keys('\\', '<bs>')
+require('leap').opts.special_keys.next_target = '|'
+require('leap').opts.special_keys.next_group = '|'
+require('leap.user').set_repeat_keys('|', '<bs>')
 
 -- Workaround for the duplicate cursor bug when autojumping (Until neovim/neovim#20793 is fixed)
 -- Hide the (real) cursor when leaping, and restore it afterwards.
