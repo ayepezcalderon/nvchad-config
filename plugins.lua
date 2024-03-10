@@ -143,7 +143,7 @@ local plugins = {
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
-    ft = {"python"},
+    ft = {"python", "tex", "plaintex", "bib"},
     opts = function()
       return require "custom.configs.null-ls"
     end,
