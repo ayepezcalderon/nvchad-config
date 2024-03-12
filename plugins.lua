@@ -212,8 +212,9 @@ local plugins = {
   {
     "gbprod/yanky.nvim",
     lazy = false,
-    opts = {
-    },
+    opts = function ()
+      return require("custom.configs.yanky")
+    end,
     config = function(_, opts)
       require("yanky").setup(opts)
       require("core.utils").load_mappings("yanky")

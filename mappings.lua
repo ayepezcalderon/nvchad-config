@@ -243,6 +243,12 @@ M.telescope_dap = {
   }
 }
 
+M.telescope = {
+  n = {
+    ["<leader>fy"] = { "<cmd> Telescope yank_history <CR>", "Yank history" },
+  }
+}
+
 M.auto_session = {
   plugin = true,
   n = {
@@ -263,8 +269,8 @@ M.yanky = {
     ["P"] = {"<Plug>(YankyPutBefore)", "Put before"},
     ["gp"] = {"<Plug>(YankyGPutAfter)", "Put after and move"},
     ["gP"] = {"<Plug>(YankyGPutBefore)", "Put before and move"},
-    ["<c-p"] = {"<Plug>(YankyPreviousEntry)", "Previous yank"},
-    ["<c-n"] = {"<Plug>(YankyNextEntry)", "Next yank"},
+    ["<M-p"] = {"<Plug>(YankyPreviousEntry)", "Previous yank"},
+    ["<M-n"] = {"<Plug>(YankyNextEntry)", "Next yank"},
     -- for vim-umpaired usage
     -- indent linewise
     ["]p"] = {"<Plug>(YankyPutIndentAfterLinewise)", "Put indent after linewise"},
@@ -276,6 +282,18 @@ M.yanky = {
     ["<p"] = {"<Plug>(YankyPutIndentAfterShiftLeft)", "Put indent after shift left"},
     [">P"] = {"<Plug>(YankyPutIndentBeforeShiftRight)", "Put indent before shift right"},
     ["<P"] = {"<Plug>(YankyPutIndentBeforeShiftLeft)", "Put indent before shift left"},
+    -- filter put
+    ["=p"] = {"<Plug>(YankyPutAfterFilter)", "Put indent before shift right"},
+    ["=P"] = {"<Plug>(YankyPutBeforeFilter)", "Put indent before shift left"},
+    -- for yanking
+    ["y"] = {"<Plug>(YankyYank)", "Yank"},
+    -- text object
+    ["lp"] = {
+      function()
+        require("yanky.textobj").last_put()
+      end,
+      "Last put text object",
+    },
   },
   x = {
     -- For yank ring
@@ -283,6 +301,15 @@ M.yanky = {
     ["P"] = {"<Plug>(YankyPutBefore)", "Put before"},
     ["gp"] = {"<Plug>(YankyGPutAfter)", "Put after and move"},
     ["gP"] = {"<Plug>(YankyGPutBefore)", "Put before and move"},
+    -- for yanking
+    ["y"] = {"<Plug>(YankyYank)", "Yank"},
+    -- text object
+    ["lp"] = {
+      function()
+        require("yanky.textobj").last_put()
+      end,
+      "Last put text object",
+    },
   },
 }
 

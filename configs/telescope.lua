@@ -4,7 +4,8 @@ local trouble = require("trouble.providers.telescope")
 
 local _core_extensions = require("plugins.configs.telescope").extensions_list
 local _custom_extensions = {
-  "session-lens"
+  "session-lens",
+  "yank_history",
 }
 local extensions_list = {}
 for i=1, #_core_extensions do
