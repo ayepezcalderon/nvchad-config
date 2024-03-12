@@ -255,6 +255,37 @@ M.auto_session = {
   }
 }
 
+M.yanky = {
+  plugin = true,
+  n = {
+    -- For yank ring
+    ["p"] = {"<Plug>(YankyPutAfter)", "Put after"},
+    ["P"] = {"<Plug>(YankyPutBefore)", "Put before"},
+    ["gp"] = {"<Plug>(YankyGPutAfter)", "Put after and move"},
+    ["gP"] = {"<Plug>(YankyGPutBefore)", "Put before and move"},
+    ["<c-p"] = {"<Plug>(YankyPreviousEntry)", "Previous yank"},
+    ["<c-n"] = {"<Plug>(YankyNextEntry)", "Next yank"},
+    -- for vim-umpaired usage
+    -- indent linewise
+    ["]p"] = {"<Plug>(YankyPutIndentAfterLinewise)", "Put indent after linewise"},
+    ["[p"] = {"<Plug>(YankyPutIndentBeforeLinewise)", "Put indent before linewise"},
+    ["]P"] = {"<Plug>(YankyPutIndentAfterLinewise)", "Put indent after linewise"},
+    ["[P"] = {"<Plug>(YankyPutIndentBeforeLinewise)", "Put indent before linewise"},
+    -- indent shift
+    [">p"] = {"<Plug>(YankyPutIndentAfterShiftRight)", "Put indent after shift right"},
+    ["<p"] = {"<Plug>(YankyPutIndentAfterShiftLeft)", "Put indent after shift left"},
+    [">P"] = {"<Plug>(YankyPutIndentBeforeShiftRight)", "Put indent before shift right"},
+    ["<P"] = {"<Plug>(YankyPutIndentBeforeShiftLeft)", "Put indent before shift left"},
+  },
+  x = {
+    -- For yank ring
+    ["p"] = {"<Plug>(YankyPutAfter)", "Put after"},
+    ["P"] = {"<Plug>(YankyPutBefore)", "Put before"},
+    ["gp"] = {"<Plug>(YankyGPutAfter)", "Put after and move"},
+    ["gP"] = {"<Plug>(YankyGPutBefore)", "Put before and move"},
+  },
+}
+
 M.black = {
   n = {
     ["<leader>kn"] = {
