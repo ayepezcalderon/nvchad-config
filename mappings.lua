@@ -269,8 +269,8 @@ M.yanky = {
     ["P"] = {"<Plug>(YankyPutBefore)", "Put before"},
     ["gp"] = {"<Plug>(YankyGPutAfter)", "Put after and move"},
     ["gP"] = {"<Plug>(YankyGPutBefore)", "Put before and move"},
-    ["<M-p"] = {"<Plug>(YankyPreviousEntry)", "Previous yank"},
-    ["<M-n"] = {"<Plug>(YankyNextEntry)", "Next yank"},
+    ["<M-p>"] = {"<Plug>(YankyPreviousEntry)", "Previous yank"},
+    ["<M-n>"] = {"<Plug>(YankyNextEntry)", "Next yank"},
     -- for vim-umpaired usage
     -- indent linewise
     ["]p"] = {"<Plug>(YankyPutIndentAfterLinewise)", "Put indent after linewise"},
@@ -288,7 +288,7 @@ M.yanky = {
     -- for yanking
     ["y"] = {"<Plug>(YankyYank)", "Yank"},
     -- text object
-    ["yp"] = {
+    ["<M-y>"] = {
       function()
         require("yanky.textobj").last_put()
       end,
