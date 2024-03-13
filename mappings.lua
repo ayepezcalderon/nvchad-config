@@ -288,7 +288,7 @@ M.yanky = {
     -- for yanking
     ["y"] = {"<Plug>(YankyYank)", "Yank"},
     -- text object
-    ["lp"] = {
+    ["yp"] = {
       function()
         require("yanky.textobj").last_put()
       end,
