@@ -13,7 +13,8 @@ local plugins = {
   },
   {
     "zbirenbaum/copilot.lua",
-    event = "InsertEnter",
+    -- event = "InsertEnter",
+    cmd = "Copilot",
     build = ":Copilot auth",
     opts = function ()
       return require("custom.configs.copilot")
