@@ -108,12 +108,13 @@ M.dap = {
       function()
         require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: '))
       end,
-      "Breakpoint Condition",
+      "Breakpoint condition",
     },
     ['<Leader>lp'] = {
       function()
         require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))
-      end
+      end,
+      "Log point",
     },
     ['<Leader>dr'] = {
       function()
