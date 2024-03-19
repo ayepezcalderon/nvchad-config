@@ -190,12 +190,24 @@ local plugins = {
   },
   {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+    },
     opts = function ()
       return vim.tbl_deep_extend(
         "force",
         require("plugins.configs.treesitter"),
         require("custom.configs.treesitter")
       )
+    end
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    opts = function()
+      return require("custom.configs.treesitter-text-objects").opts
+    end,
+    config = function (_, opts)
+      require("custom.configs.treesitter-text-objects").setup(_, opts)
     end
   },
   {
